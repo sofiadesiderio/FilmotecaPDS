@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendação de Filmes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recomendação de Filmes</h1>
+    <form method="POST">
+        <label>
+            <input type="radio" name="suggestion_type" value="watched" checked>
+            Recomendar A Partir de Filmes Assistidos
+        </label>
+        <label>
+            <input type="radio" name="suggestion_type" value="unwatched">
+            Recomendar A Partir de Filmes Não Assistidos
+        </label>
+        <button type="submit">Recomendar Filme</button>
+    </form>
+    {% if result %}
+        <div id="result">{{ result }}</div>
+    {% endif %}
+</body>
+</html>
